@@ -1,4 +1,4 @@
-package edu.temple.capstone.BinBotServer.instructions;
+package edu.temple.cis.capstone.BinBotDemo1.instructions;
 
 import javafx.util.Pair;
 import org.json.JSONObject;
@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 /**
  * The Instruction class represents a set of instructions that BinBot should follow in order to retrieve trash. It is
@@ -107,25 +108,43 @@ public class Instruction
 		retval += "\"img\":" + "\"temporary\",";
 
 		retval += "\"treads\":[";
-		for (Pair pair : this.treads) {
-			retval += "{\"angle\":" + pair.getKey() + ",";
-			retval += "\"distance\":" + pair.getValue() + "}";
-			if (pair != this.treads.get(this.treads.size() - 1)) {
-				retval += ",";
+		if (this.treads != null) {
+			for (Pair pair : this.treads) {
+				retval += "{\"angle\":" + pair.getKey() + ",";
+				retval += "\"distance\":" + pair.getValue() + "}";
+				if (pair != this.treads.get(this.treads.size() - 1)) {
+					retval += ",";
+				}
 			}
 		}
 		retval += "],";
 
 		retval += "\"arms\":[";
-		for (Double d : this.arms) {
-			retval += "{\"angle\":" + d + "}";
-			if (d != this.arms.get(this.arms.size() - 1)) {
-				retval += ",";
+		if (this.arms != null) {
+			for (Double d : this.arms) {
+				retval += "{\"angle\":" + d + "}";
+				if (d != this.arms.get(this.arms.size() - 1)) {
+					retval += ",";
+				}
 			}
 		}
 		retval += "]}";
 
 		return retval;
+	}
+
+	/**
+	 * This method creates a new Instruction object based on the arguments provided. This shouldn't really ever be used
+	 * outside of testing purposes, but it is here just in case.
+	 *
+	 * @author Sean DiGirolamo
+	 * @since 2019-10-23
+	 */
+	public Instruction(Status status, BufferedImage img, List<Pair<Double, Double>> treads, List<Double> arms) {
+		this.status = status;
+		this.img = img;
+		this.treads = treads;
+		this.arms = arms;
 	}
 
 	/**
