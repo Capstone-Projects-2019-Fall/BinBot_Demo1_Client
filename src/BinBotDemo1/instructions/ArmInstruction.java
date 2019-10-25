@@ -1,4 +1,4 @@
-package edu.temple.cis.capstone.BinBotDemo1.instructions;
+package BinBotDemo1.instructions;
 
 import java.util.ArrayList;
 import java.util.List;

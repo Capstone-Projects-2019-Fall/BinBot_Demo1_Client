@@ -1,16 +1,12 @@
-package edu.temple.cis.capstone.BinBotDemo1.instructions;
+package BinBotDemo1.instructions;
 
-import javafx.util.Pair;
 import org.json.JSONObject;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Base64;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -44,7 +40,8 @@ public class Instruction
 {
 	private Status status;
 	private BufferedImage img;
-	private List<Pair<Double, Double>> treads;
+//	private List<Pair<Double, Double>> treads;
+	private List<Map.Entry<Double, Double>> treads;
 	private List<Double> arms;
 
 	/**
@@ -67,7 +64,8 @@ public class Instruction
 
 		for (Object o : jsonObject.getJSONArray("treads")) {
 			JSONObject jo = (JSONObject)o;
-			treads.add(new Pair<>(jo.getDouble("angle"), jo.getDouble("distance")));
+//			treads.add(new Pair<>(jo.getDouble("angle"), jo.getDouble("distance")));
+			treads.add(new AbstractMap.SimpleEntry<>(jo.getDouble("angle"), jo.getDouble("distance")));
 		}
 
 		this.arms = new ArrayList<>();
@@ -90,7 +88,8 @@ public class Instruction
 		this.status = Status.PATROL;
 		this.img = null;
 		this.treads = new ArrayList<>();
-		this.treads.add(new Pair<>(0.0, 00.0));
+//		this.treads.add(new Pair<>(0.0, 00.0));
+		this.treads.add(new AbstractMap.SimpleEntry<>(0.0, 00.0));
 		this.arms = new ArrayList<>();
 		this.arms = new ArrayList<>();
 		this.arms.add(0.0);
@@ -110,7 +109,7 @@ public class Instruction
 
 		retval += "\"treads\":[";
 		if (this.treads != null) {
-			for (Pair pair : this.treads) {
+			for (Map.Entry<Double, Double> pair : this.treads) {
 				retval += "{\"angle\":" + pair.getKey() + ",";
 				retval += "\"distance\":" + pair.getValue() + "}";
 				if (pair != this.treads.get(this.treads.size() - 1)) {
@@ -141,7 +140,7 @@ public class Instruction
 	 * @author Sean DiGirolamo
 	 * @since 2019-10-23
 	 */
-	public Instruction(Status status, BufferedImage img, List<Pair<Double, Double>> treads, List<Double> arms) {
+	public Instruction(Status status, BufferedImage img, List<Map.Entry<Double, Double>> treads, List<Double> arms) {
 		this.status = status;
 		this.img = img;
 		this.treads = treads;
