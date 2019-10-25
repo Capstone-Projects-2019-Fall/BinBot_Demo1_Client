@@ -5,18 +5,26 @@ import BinBotDemo1.instructions.Instruction;
 import BinBotDemo1.instructions.Status;
 
 import javax.imageio.ImageIO;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Main
-{
+
+public class Main {
+
     static final String IP = "127.0.0.1";
     static final int PORT = 7001;
 
     static ServerConnection connection;
 
     public static void main(String[] args) throws IOException {
+//        serverTest();
+        MyFrame.main(args);
+
+    }
+
+    public static void serverTest() throws IOException {
         String path = "C:/Users/Sean/Desktop/Client/";
         String receiveFilename = "received.jpg";
         System.out.println("Connecting to " + IP + " " + PORT + "...");

@@ -13,6 +13,9 @@
           <root url="jar://$MODULE_DIR$/../opencv/build/java/opencv-411.jar!/" />
         </CLASSES>
         <JAVADOC />
+        <NATIVE>
+          <root url="file://$MODULE_DIR$/../opencv/build/java/x64" />
+        </NATIVE>
         <SOURCES>
           <root url="jar://$MODULE_DIR$/../opencv/build/java/opencv-411.jar!/" />
         </SOURCES>

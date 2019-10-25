@@ -9,24 +9,19 @@ import java.net.Socket;
  * Server. Its methods allow the client to connect to the server while the server is listening for connections, and then
  * to send data back and forth to the server.
  *
- *
- *
  * @author Sean DiGirolamo
  * @version 1.0
- * @since   2019-10-23
+ * @since 2019-10-23
  */
-public class ServerConnection
-{
+public class ServerConnection {
     private Socket sock;
 
     /**
      * This constructor creates a ServerConnection object which can be used for initiating and communicating with
      * the BinBot Server. It takes the IP Address and port number that the client should connect to as arguments
      *
-     *
-     *
-     * @author  Sean DiGirolamo
-     * @since   2019-10-23
+     * @author Sean DiGirolamo
+     * @since 2019-10-23
      */
     public ServerConnection(String ipAddr, int port) throws IOException {
         InetAddress ip = InetAddress.getByName(ipAddr);
@@ -36,10 +31,8 @@ public class ServerConnection
     /**
      * This method takes as input a string which will be sent over the socket to the server
      *
-     *
-     *
-     * @author  Sean DiGirolamo
-     * @since   2019-10-23
+     * @author Sean DiGirolamo
+     * @since 2019-10-23
      */
     public void send(String s) throws IOException {
         PrintWriter out = new PrintWriter(sock.getOutputStream(), true);
@@ -49,10 +42,8 @@ public class ServerConnection
     /**
      * This method instructs the client to wait to receive a string from the server. It returns the string received.
      *
-     *
-     *
-     * @author  Sean DiGirolamo
-     * @since   2019-10-23
+     * @author Sean DiGirolamo
+     * @since 2019-10-23
      */
     public String receive() throws IOException {
         String retval;
