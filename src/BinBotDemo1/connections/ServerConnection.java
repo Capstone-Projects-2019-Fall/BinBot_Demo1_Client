@@ -54,7 +54,7 @@ public class ServerConnection
      * @author  Sean DiGirolamo
      * @since   2019-10-23
      */
-    public String recieve() throws IOException {
+    public String receive() throws IOException {
         String retval;
         InputStream is = sock.getInputStream();
         InputStreamReader isr = new InputStreamReader(is);

@@ -27,7 +27,7 @@ import java.util.*;
  *     		}
  *     	]
  * }
- * where status is BinBot's operating status, img holds a picture captured by binbot's camera, treads is an array
+ * where status is BinBot's operating status, img holds a picture captured by BinBot's camera, treads is an array
  * containing pairs of angles it should turn and distances it should travel forward after turning,
  * and arms is an array of angles each joint should turn.
  *

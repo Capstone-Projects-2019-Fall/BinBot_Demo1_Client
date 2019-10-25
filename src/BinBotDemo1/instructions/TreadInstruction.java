@@ -1,9 +1,9 @@
 package BinBotDemo1.instructions;
 
-import javafx.util.Pair;
-
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The TreadInstruction class consists only of one static method "calcInstructions", which is responsible for
@@ -29,9 +29,9 @@ public class TreadInstruction
 	 * @author  Sean DiGirolamo
 	 * @since   2019-10-09
 	 */
-	public static List<Pair<Double, Double>> calcInstructions(double x, double y, double w, double h) {
-		List <Pair<Double, Double>> retval = new ArrayList<>();
-		retval.add(new Pair<>(0.0, 0.0));
+	public static List<Map.Entry<Double, Double>> calcInstructions(double x, double y, double w, double h) {
+		List <Map.Entry<Double, Double>> retval = new ArrayList<>();
+		retval.add(new AbstractMap.SimpleEntry<>(0.0, 0.0));
 		return retval;
 	}
 }
