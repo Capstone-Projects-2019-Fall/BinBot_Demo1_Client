@@ -10,8 +10,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-
-public class Main {
+/**
+ * Class to test exchanging .jgp files between the client and server.
+ *
+ * @author Sean DiGirolamo
+ * @version 1.0
+ * @since 2019-10-25
+ */
+public class FileExchangeTest {
 
     static final String IP = "127.0.0.1";
     static final int PORT = 7001;
@@ -19,9 +25,7 @@ public class Main {
     static ServerConnection connection;
 
     public static void main(String[] args) throws IOException {
-//        serverTest();
-        MyFrame.main(args);
-
+        serverTest();
     }
 
     public static void serverTest() throws IOException {
